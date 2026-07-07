@@ -43,10 +43,10 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
         </div>
         <div className="flex min-w-0 items-end justify-between gap-5">
           <div className="min-w-0">
-            <h3 className="max-w-xl min-w-0 whitespace-pre-line break-words font-display text-4xl font-black uppercase leading-[0.9] transition duration-500 group-hover:-translate-y-2 md:text-6xl">
+            <h3 className="max-w-xl min-w-0 whitespace-pre-line break-words font-display text-[2.65rem] font-black uppercase leading-[0.9] transition duration-500 group-hover:-translate-y-2 md:text-6xl">
               {(project.displayTitle ?? project.title).replace(" / ", "\n")}
             </h3>
-            <p className="mt-4 max-w-md translate-y-2 text-sm leading-relaxed text-bone/0 transition duration-500 group-hover:translate-y-0 group-hover:text-bone/70">
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-bone/70 transition duration-500 md:translate-y-2 md:text-bone/0 md:group-hover:translate-y-0 md:group-hover:text-bone/70">
               {project.role}
             </p>
           </div>

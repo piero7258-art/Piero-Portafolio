@@ -13,6 +13,11 @@ export function useGsapReveal(scope: RefObject<HTMLElement | null>) {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       const reveals = gsap.utils.toArray<HTMLElement>("[data-reveal]");
+      if (window.matchMedia("(max-width: 767px)").matches) {
+        gsap.set(reveals, { autoAlpha: 1, y: 0, filter: "blur(0px)" });
+        return;
+      }
+
       reveals.forEach((element) => {
         gsap.fromTo(
           element,

@@ -59,7 +59,7 @@ export function TimelineExperience() {
 
   useGSAP(
     () => {
-      if (!track.current || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      if (!track.current || window.innerWidth < 768 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
       const cards = gsap.utils.toArray<HTMLElement>("[data-timeline-card]");
       const images = gsap.utils.toArray<HTMLElement>("[data-timeline-image]");
@@ -121,12 +121,30 @@ export function TimelineExperience() {
   );
 
   return (
-    <section id="experience" ref={scope} className="overflow-hidden py-24">
+    <section id="experience" ref={scope} className="overflow-hidden py-16 md:py-24">
       <div className="section-shell" data-reveal>
         <p className="eyebrow mb-4">Experience</p>
         <h2 className="display-lg">The road so far</h2>
       </div>
-      <div ref={track} className="mt-14 flex w-max gap-4 px-[clamp(1rem,4vw,4.5rem)]">
+      <div className="section-shell mt-10 grid gap-4 md:hidden">
+        {chapters.map((chapter, index) => (
+          <article key={chapter.title} data-timeline-card className="glass-line overflow-hidden rounded">
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image src={chapter.image} alt={chapter.title} fill sizes="100vw" className="object-cover" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+              <div className="absolute left-4 top-4 rounded-full border border-acid/40 px-3 py-2 font-mono text-xs uppercase tracking-wide text-acid">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+            </div>
+            <div className="p-5">
+              <p className="eyebrow mb-3">{chapter.year}</p>
+              <h3 className="font-display text-[2.55rem] font-black uppercase leading-[0.9]">{chapter.title}</h3>
+              <p className="mt-4 text-sm leading-relaxed text-bone/65">{chapter.body}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div ref={track} className="mt-14 hidden w-max gap-4 px-[clamp(1rem,4vw,4.5rem)] md:flex">
         {chapters.map((chapter, index) => (
           <article
             key={chapter.title}

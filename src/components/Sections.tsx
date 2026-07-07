@@ -15,7 +15,7 @@ const socialLinks = [
 
 export function Services() {
   return (
-    <section id="services" className="section-shell py-24">
+    <section id="services" className="section-shell py-16 md:py-24">
       <div className="grid gap-8 lg:grid-cols-[.72fr_1fr]">
         <div data-reveal className="lg:sticky lg:top-28 lg:h-fit">
           <p className="eyebrow mb-4">Services</p>
@@ -25,7 +25,7 @@ export function Services() {
           {services.map((service, index) => (
             <article key={service.title} data-reveal className="glass-line rounded p-6 transition-colors hover:border-acid/50">
               <span className="font-mono text-acid">{String(index + 1).padStart(2, "0")}.</span>
-              <h3 className="mt-8 font-display text-4xl font-black uppercase leading-none">{service.title}</h3>
+              <h3 className="mt-8 font-display text-[2.5rem] font-black uppercase leading-none md:text-4xl">{service.title}</h3>
               <p className="mt-5 text-bone/65">{service.body}</p>
             </article>
           ))}
@@ -41,7 +41,7 @@ export function ExperienceTimeline() {
 
 export function Skills() {
   return (
-    <section id="skills" className="section-shell py-20">
+    <section id="skills" className="section-shell py-16 md:py-20">
       <div data-reveal className="rounded border border-bone/15 bg-bone text-ink">
         <div className="grid gap-6 p-6 md:grid-cols-[.6fr_1fr] md:p-10">
           <h2 className="font-display text-6xl font-black uppercase leading-none md:text-8xl">Tools, skills, rhythm.</h2>
@@ -60,16 +60,16 @@ export function Skills() {
 
 export function CreativeProcess() {
   return (
-    <section id="process" className="section-shell py-24">
+    <section id="process" className="section-shell py-16 md:py-24">
       <div data-reveal className="mb-12">
         <p className="eyebrow mb-4">Creative process</p>
         <h2 className="display-lg">From signal to scene</h2>
       </div>
-      <div className="grid gap-3 md:grid-cols-7">
+      <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-7">
         {process.map((step, index) => (
-          <article key={step.title} data-reveal className="group min-h-52 rounded border border-bone/15 bg-white/[0.03] p-5 transition-colors hover:border-acid/60">
+          <article key={step.title} data-reveal className="group min-h-44 rounded border border-bone/15 bg-white/[0.03] p-5 transition-colors hover:border-acid/60 md:min-h-52">
             <p className="font-mono text-acid">0{index + 1}</p>
-            <h3 className="mt-16 text-sm font-semibold uppercase tracking-wide">{step.title}</h3>
+            <h3 className="mt-10 text-sm font-semibold uppercase tracking-wide md:mt-16">{step.title}</h3>
             <div className="mt-5 space-y-2 text-xs leading-relaxed text-bone/55">
               {step.items.map((item) => (
                 <p key={item}>{item}</p>
@@ -87,19 +87,19 @@ export function DjSessions() {
   const djProjects = getProjects().filter((project) => project.category === "DJ Sets").slice(0, 3);
 
   return (
-    <section id="dj" className="section-shell py-24">
+    <section id="dj" className="section-shell py-16 md:py-24">
       <div className="grid gap-6 lg:grid-cols-[1fr_.72fr] lg:items-end">
-        <div data-reveal className="relative min-h-[34rem] overflow-hidden rounded border border-bone/15">
+        <div data-reveal className="relative min-h-[26rem] overflow-hidden rounded border border-bone/15 md:min-h-[34rem]">
           <Image src={assets.dj} alt="Piero Galley DJ session" fill sizes="(max-width: 1024px) 100vw, 60vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
           <div className="absolute bottom-0 p-6 md:p-10">
             <Disc3 className="mb-5 text-acid" size={34} aria-hidden="true" />
-            <h2 className="font-display text-6xl font-black uppercase leading-none md:text-9xl">DJ Sessions</h2>
+            <h2 className="font-display text-[3.4rem] font-black uppercase leading-none md:text-9xl">DJ Sessions</h2>
           </div>
         </div>
         <div data-reveal className="glass-line rounded p-7 md:p-10">
           <p className="eyebrow mb-5">Music culture</p>
-          <p className="text-2xl leading-tight text-bone">
+          <p className="text-xl leading-tight text-bone md:text-2xl">
             DJ work is treated as an audiovisual case study: rhythm, atmosphere, audience reading and a visual identity built around music culture.
           </p>
           <p className="mt-6 text-bone/65">
@@ -126,11 +126,11 @@ export function DjSessions() {
 
 export function Contact() {
   return (
-    <section id="contact" className="section-shell py-24">
+    <section id="contact" className="section-shell py-16 md:py-24">
       <div data-reveal className="rounded border border-acid/40 bg-acid p-6 text-ink md:p-10">
         <p className="font-mono text-sm uppercase tracking-wide">Available for selected collaborations</p>
         <div className="mt-8 grid gap-8 md:grid-cols-[1fr_.65fr] md:items-end">
-          <h2 className="min-w-0 break-words font-display text-6xl font-black uppercase leading-none md:text-9xl">Let&apos;s create something that lasts.</h2>
+          <h2 className="min-w-0 break-words font-display text-[3.35rem] font-black uppercase leading-none md:text-9xl">Let&apos;s create something that lasts.</h2>
           <div className="min-w-0 space-y-4 text-sm">
             <a className="flex items-center justify-between border-b border-ink/25 pb-3" href={`mailto:${site.email}`}>
               <span className="inline-flex min-w-0 items-center gap-3 break-all">

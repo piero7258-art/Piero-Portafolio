@@ -6,6 +6,7 @@ import { useEffect } from "react";
 export function useLenis() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (window.matchMedia("(max-width: 767px)").matches) return;
 
     const lenis = new Lenis({
       lerp: 0.08,
