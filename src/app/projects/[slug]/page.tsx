@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { getProject, getProjects, getRelatedProjects } from "@/data/projects";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import { site } from "@/data/site";
@@ -154,6 +154,28 @@ export default async function ProjectPage({ params }: PageProps) {
           </p>
         </div>
       </section>
+
+      {project.links && project.links.length > 0 && (
+        <section className="section-shell py-16">
+          <div data-reveal className="glass-line rounded p-6 md:p-8">
+            <p className="eyebrow mb-5">Official channels</p>
+            <div className="grid gap-3 md:grid-cols-3">
+              {project.links.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group flex items-center justify-between gap-4 rounded border border-bone/15 px-4 py-3 text-sm text-bone/72 transition hover:border-acid/55 hover:text-acid"
+                >
+                  <span>{link.label}</span>
+                  <ArrowUpRight className="shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" size={16} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {project.gallery.length > 0 && (
         <section className="section-shell py-20">

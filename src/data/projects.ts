@@ -21,6 +21,7 @@ export type Project = {
   cover: string;
   gallery: AssetFile[];
   related: string[];
+  links?: { label: string; href: string }[];
 };
 
 export const youtube = {
@@ -88,6 +89,46 @@ const projects: Project[] = [
     cover: thumbnail("2ThviHROtbw"),
     gallery: galleryFrom("Piero Fotos/Personal", 8),
     related: ["a-traves-de-mis-ojos", "renacer", "bendita-final"]
+  },
+  {
+    slug: slugify("sociedad peruana bienes raices prestopolis growth system"),
+    title: "Real Estate Growth System",
+    displayTitle: "SPBR / Prestopolis",
+    category: "Commercial",
+    description:
+      "A performance content and community management case study for Sociedad Peruana de Bienes Raices and Prestopolis, connecting paid strategy, content production, sales messaging, platform distribution and weekly podcast post-production.",
+    role: "Content Strategist / Community Manager / Digital Distribution / Podcast Producer",
+    year: "April-May 2026",
+    tools: ["Meta Business Suite", "YouTube Studio", "Content Strategy", "Paid Segmentation", "Community Management", "Podcast Production"],
+    outcome: [
+      "92.6K YouTube views in the selected period",
+      "+365 YouTube subscribers",
+      "5.9K watch hours",
+      "S/ 446 estimated YouTube revenue",
+      "98.9K Meta views and 42.5K reach documented",
+      "2.9K Instagram link clicks documented",
+      "Weekly podcast production and post-production workflow"
+    ],
+    credits: [
+      "Brands: Sociedad Peruana de Bienes Raices and Prestopolis.",
+      "Content creation, paid strategy, community management, digital distribution and podcast production by Piero Galley.",
+      "Sales messaging and audience segmentation developed in collaboration with the commercial team."
+    ],
+    youtubeVideos: [],
+    cover: publicAsset("Real Estate Growth Case/youtube-overview-spbr.jpeg"),
+    gallery: galleryFrom("Real Estate Growth Case", 8),
+    related: ["community-management-case-study", "creative-research-ai-systems", "renacer"],
+    links: [
+      { label: "SPBR YouTube", href: "https://www.youtube.com/c/SOCIEDADPERUANADEBIENESRAICES" },
+      { label: "SPBR LinkedIn", href: "https://www.linkedin.com/company/sociedadperuanadebienesraices/?originalSubdomain=pe" },
+      { label: "SPBR Instagram", href: "https://www.instagram.com/sociedadbienesraices/?hl=es" },
+      { label: "SPBR TikTok", href: "https://www.tiktok.com/@bienes.raicess" },
+      { label: "SPBR Facebook", href: "https://www.facebook.com/BienesRaicessPeru/?locale=es_LA" },
+      { label: "Prestopolis YouTube", href: "https://www.youtube.com/@Prestopolis" },
+      { label: "Prestopolis Instagram", href: "https://www.instagram.com/prestopolis/" },
+      { label: "Prestopolis Facebook", href: "https://www.facebook.com/prestopolispe/?locale=es_LA" },
+      { label: "Prestopolis LinkedIn", href: "https://www.linkedin.com/company/prestopolis/" }
+    ]
   },
   {
     slug: slugify("mondo central beat casona de camana 2025"),
@@ -188,7 +229,7 @@ const projects: Project[] = [
     youtubeVideos: [],
     cover: publicAsset("Community y redes/Arenas.jpg"),
     gallery: galleryFrom("Community y redes", 16),
-    related: ["renacer", "bendita-final"]
+    related: ["sociedad-peruana-bienes-raices-prestopolis-growth-system", "renacer", "bendita-final"]
   },
   {
     slug: slugify("creative research ai systems"),
